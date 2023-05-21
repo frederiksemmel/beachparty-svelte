@@ -1,0 +1,28 @@
+[package]
+name = "beachparty"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ical = { version = "0.8.*", features = ["ical"] }
+regex = "1"
+pomsky-macro = "*"
+chrono = "0.4.24"
+ureq = "2.6.2"
+anyhow = "1.0.71"
+
+
+tokio = { version = "1", features = ["macros"] }
+serde = "*"
+serde_json = { version = "1", features = ["raw_value"] }
+# Documentation: https://docs.rs/vercel_runtime/latest/vercel_runtime
+vercel_runtime = { version = "0.2.1" }
+
+[lib]
+path = "backend/src/lib.rs"
+
+[[bin]]
+name = "events"
+path = "backend/api/events.rs"
