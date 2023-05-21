@@ -20,7 +20,7 @@ fn parse_event_property(event: &IcalEvent, name: &str) -> Option<String> {
 fn parse_names_from_description(desc: &str) -> Vec<String> {
     const CONFIRMED: &str = pomsky! {
         // variables
-        let name = ([Letter] | " ")*;
+        let name = ([Letter] | " " | ['0' - '9'])*;
         let first = (name "\\, ")*;
         let last = name "\\n";
         "Confirmed Invitees: " :names(first last)
@@ -44,8 +44,25 @@ fn parse_names_from_description(desc: &str) -> Vec<String> {
     names
 }
 
+fn parse_type_from_summary(summ: &str) -> Option<String> {
+    const TYPE: &str = pomsky! {
+        // variables
+        let number = (['0' - '9'])+;
+        let name = ([Letter] | " " | number)*;
+        :eventtype(name) " (" number " of " number " spots filled)"
+    };
+    // println!("{}", CONFIRMED);
+    let event_type_re = Regex::new(TYPE).unwrap();
+    // desc.split("\n, ")
+    event_type_re
+        .captures(summ)
+        .and_then(|c| c.name("eventtype"))
+        .map(|c| c.as_str().to_owned())
+}
+
 #[derive(Debug, Serialize)]
 pub struct Event {
+    pub event_type: String,
     pub title: String,
     pub attendees: Vec<String>,
     pub location: String,
@@ -55,6 +72,7 @@ pub struct Event {
 
 impl Event {
     fn try_parse_from_ical(event: &IcalEvent) -> Option<Self> {
+        println!("{:#?}", event);
         let title = parse_event_property(event, "SUMMARY").unwrap();
         if title.starts_with("Canceled") {
             return None;
@@ -66,7 +84,9 @@ impl Event {
         let end = parse_event_property(event, "DTEND").unwrap();
         let end = Utc.datetime_from_str(&end, "%Y%m%dT%H%M%SZ").unwrap();
         let attendees = parse_names_from_description(&description);
+        let event_type = parse_type_from_summary(&title)?;
         Some(Event {
+            event_type,
             title,
             attendees,
             location,
