@@ -21,8 +21,8 @@ serde_json = { version = "1", features = ["raw_value"] }
 vercel_runtime = { version = "0.2.1" }
 
 [lib]
-path = "backend/src/lib.rs"
+path = "src_rs/lib.rs"
 
 [[bin]]
 name = "events"
-path = "backend/api/events.rs"
+path = "api/events.rs"
