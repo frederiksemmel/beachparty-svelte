@@ -1,23 +1,33 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	import Section from '../lib/section.svelte';
 
-	import beach from '$lib/assets/beach.png';
-	import golf from '$lib/assets/golf.jpg';
-	import tennis from '$lib/assets/tennis.jpg';
-	import sailing from '$lib/assets/sailing.jpg';
-	import sunbathing from '$lib/assets/sunbathing.jpg';
-	import modernismo from '$lib/assets/modernismo.jpg';
-	import caleta from '$lib/assets/caleta.jpg';
-	/** @type {import('./$types').PageData} */
-	export let data;
+	import beach from '$lib/assets/beach.png?w=1920&format=webp';
+	import golf from '$lib/assets/golf.jpg?w=1920&format=webp';
+	import tennis from '$lib/assets/tennis.jpg?w=1920&format=webp';
+	import sailing from '$lib/assets/sailing.jpg?w=1920&format=webp';
+	import sunbathing from '$lib/assets/sunbathing.jpg?w=1920&format=webp';
+	import modernismo from '$lib/assets/modernismo.jpg?w=1920&format=webp';
+	import caleta from '$lib/assets/caleta.jpg?w=1920&format=webp';
 
-	// $: console.log(data)
+	var data = {"Tennis": [], "Golf": []};
 
 	function format_date(date_str: string): string {
 		var date = new Date(date_str);
 		let hours = date.getHours();
 		return `${hours}${hours >= 12 ? 'pm' : 'am'}`;
 	}
+
+	onMount(async () => {
+		const recaptchaScript = document.createElement('script');
+		recaptchaScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+		document.head.appendChild(recaptchaScript);
+
+		const res = await fetch(`/api/events`);
+		data = await res.json()
+		console.log(data)
+	});
 </script>
 
 <Section background={beach} dir="left">
@@ -83,7 +93,7 @@
 </Section>
 
 <Section background={sunbathing} dir="left" gradient={false}>
-	<div slot="title" class="text-black">
+	<div slot="title" class="text-slate-800">
 		Sunbathing <br />
 		12:00 - 18:00
 	</div>
@@ -93,6 +103,14 @@
 		Chiringuito Ohnades, Passeig del Marquès de Casa Riera, 25, 08394 Sant Vicenç de Montalt <br />
 		“Can Markus”, Avinguda Turo d’en Llull 64, 08392 Sant Andreu de Llavaneres
 	</div>
+</Section>
+
+<Section background={modernismo} dir="right">
+	<div slot="title">
+		Spaziergang <br />
+		12:00
+	</div>
+	<div slot="content">Spaziergang mit katalanischem Modernismus in Canet de Mar</div>
 </Section>
 
 <Section background={caleta} dir="right">
