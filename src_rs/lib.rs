@@ -72,7 +72,7 @@ pub struct Event {
 
 impl Event {
     fn try_parse_from_ical(event: &IcalEvent) -> Option<Self> {
-        println!("{:#?}", event);
+        // println!("{:#?}", event);
         let title = parse_event_property(event, "SUMMARY").unwrap();
         if title.starts_with("Canceled") {
             return None;
@@ -113,7 +113,7 @@ pub fn get_all_events() -> anyhow::Result<Vec<Event>> {
         let cal = cal.unwrap();
         for event in cal.events {
             if let Some(event) = Event::try_parse_from_ical(&event) {
-                println!("{:#?}", event);
+                // println!("{:#?}", event);
                 events.push(event)
             }
         }
