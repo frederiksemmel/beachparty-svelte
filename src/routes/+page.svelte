@@ -10,9 +10,13 @@
 	import sunbathing from '$lib/assets/sunbathing.jpg?w=1920&format=webp';
 	import modernismo from '$lib/assets/modernismo.jpg?w=1920&format=webp';
 	import caleta from '$lib/assets/caleta.jpg?w=1920&format=webp';
+	import beachclub from '$lib/assets/beachclub_1.jpg?w=1920&format=webp';
 
-	var data = { Tennis: [], Golf: [] };
-	var lang = 'ES';
+	var data = [
+		{ name: 'Tennis', events: [] },
+		{ name: 'Golf', events: [] }
+	];
+	var lang = 'DE';
 
 	function format_date(date_str: string): string {
 		var date = new Date(date_str);
@@ -147,28 +151,68 @@
 	</div>
 </Section>
 
-<Section background={caleta} dir="right">
+<Section background={caleta} dir="left">
 	<div slot="title">
 		Watering hole & Wine spot <br />
 		{lang == 'DE' ? 'Ab' : 'A partir de las'}
-		 14:00
+		14:00
 	</div>
 	<div slot="content">
+		{lang == 'DE' ? 'In La Caleta.' : 'En La Caleta.'} <br />
+		<span class="font-bold">
+			{lang == 'DE' ? 'Mittagessen' : 'Comida: '} <br />
+		</span>
+		{lang == 'DE' ? 'Unsere Vorschläge sind' : 'Nuestras propuestas son:'}
+		La Caleta, Ohnades, Mío, Sotavent.
+		{lang == 'DE'
+			? 'Sagt bitte Bescheid, wenn wir für Euch vorreservieren sollen'
+			: 'Por favor avisarnos si queréis que reservemos'}
+		<br />
 		Location: La Caleta, Passeig del Marquès de Casa Riera, 45, Sant Vicenç de Montalt, <br />
 		+34 937 911 558
 	</div>
 </Section>
 
+<Section background={beachclub} dir="right">
+	<div slot="title">
+		Beachparty <br />
+		20:00
+	</div>
+	<div slot="content">
+		{lang == 'DE' ? 'Im GAS Quiet Club.' : 'En el GAS Quiet Club.'}
+		<br />
+		{lang == 'DE'
+			? 'Dress code: Sommerlich mit Sand-festen Schuhen oder Barfuss.'
+			: 'Dress code: Veraniego con zapatos a prueba de arena o descalzos.'}
+		<br />
+		Location: GAS Quiet Club, Club Náutico El Balís, Sant Andreu de Llavaneres
+	</div>
+</Section>
+
 <div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
 	<h2 class="text-4xl font-display">
+		{lang == 'DE' ? 'Anreise' : 'Llegada'}
+	</h2>
+	<div class="mx-6 md:mx-40">
+		{lang == 'DE'
+			? 'Wenn Ihr möchtet, gebt Eure Flüge und Ankunftszeiten an, um gemeinsam Autos auszuleihen oder per Sammeltaxi nach Llavaneres zu fahren.'
+			: 'Si queréis, darnos vuestros vuelos o trenes y hora de llegada (ver más abajo), para organizar el alquiler de coches o de coger un taxi grande a Llavaneres.'}
+		<br />
+		{lang == 'DE'
+			? 'Per Taxi: Kristian Taxi, 6 Sitze: ... €, 4 Sitze: ... € Edu Taxi, 4 Sitze: ...'
+			: 'Por Taxi: Kristian Taxi, 6 plazas: ... €, 4 plazas: ... € Edu Taxi, 4 plazas: ...'}
+	</div>
+</div>
 
+<div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
+	<h2 class="text-4xl font-display">
 		{lang == 'DE' ? 'Aktivitäten' : 'Actividades'}
 	</h2>
-	{#each ['Tennis', 'Golf'] as event_type}
+	{#each data as event_type}
 		<div class="mx-6 md:mx-40">
-			<span class="text-xl font-bold">{event_type}</span>
+			<span class="text-xl font-bold">{event_type.name}</span>
 			<div class="grid grid-cols-2 grid-cols-[60px_auto] gap-x-4">
-				{#each data[event_type] as event}
+				{#each event_type.events as event}
 					<span class="text-right"> {format_date(event['start'])}:</span>
 					<div class="">
 						{event['attendees'].join(', ')}
@@ -183,4 +227,37 @@
 		data-url="https://calendly.com/semmelbeachparty?hide_gdpr_banner=0"
 	/>
 	<!-- Calendly inline widget end -->
+</div>
+
+<div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
+	<h2 class="text-4xl font-display">
+		{lang == 'DE' ? 'Adressen' : 'Direcciones'}
+	</h2>
+	<div class="mx-6 md:mx-40">
+		“Can Markus”, Avinguda Turo d’en Llull 64, 08392 Sant Andreu de Llavaneres <br />
+		Club de Golf de Llavaneres, Camí Golf, 49-51, Sant Andreu de Llavaneres <br />
+		Tenis Mora, Camí de Can Pi, Sant Andreu de Llavaneres <br />
+		Club Náutico El Balís, Sant Andreu de Llavaneres, Amarres 468 – 470 <br />
+		Chiringuito Ohnades, Passeig del Marquès de Casa Riera, 25, 08394 Sant Vicenç de Montalt <br />
+		La Caleta, Passeig del Marquès de Casa Riera, 45, Sant Vicenç de Montalt, Tel. +34 937 911 558
+		<br />
+		Ohnades, Passeig del Marquès de Casa Riera, 25, Sant Vicenç de Montalt, Tel: +34 692 336 653
+		<br />
+		Mío, Passeig del Marquès de Casa Riera, 1, Sant Vicenç de Montalt, +34 605 511 413 <br />
+		Sotavent, Passeig dels Anglesos, 24, 08393 Caldes d'Estrac, +34 661 759 445 <br />
+		GAS Quiet Club, Club Náutico El Balís, Sant Andreu de Llavaneres <br />
+		Petit Moll, Passeig del Marquès de Casa Riera, Sant Vicenç de Montalt <br />
+	</div>
+</div>
+
+<div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
+	<h2 class="text-4xl font-display">
+		{lang == 'DE' ? 'Telefone' : 'Móviles'}
+	</h2>
+	<div class="mx-6 md:mx-40">
+		Markus: 629 129636 <br />
+		Nata: 619 818 229 <br />
+		Miriam: +34 638 089 540 <br />
+		Frederik: +41 788 544 271 (WhatsApp) <br />
+	</div>
 </div>

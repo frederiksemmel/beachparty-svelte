@@ -20,7 +20,7 @@
 		>
 			<slot name="title"/>
 		</div>
-		<div class="flex flex-col text-xl font-body">
+		<div class="flex flex-col text-xl md:text-2xl font-body">
 			<slot name="content" />
 		</div>
 	</div>
