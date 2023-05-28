@@ -53,28 +53,39 @@
 		SANT ANDREU DE LLAVANERES <br />
 	</div>
 	<div slot="content" class="flex flex-col align-start md:uppercase">
-		<span class="font-bold my-4 text-amber-100">Sat Sept 16, 2023</span>
+		<span class="font-bold my-4 text-amber-100"
+			>{lang == 'DE' ? 'Freitag September 15' : 'Viernes Septiembre 15'}</span
+		>
 		<div class="grid grid-cols-2 grid-cols-[85px_auto] place-content-start gap-x-8">
-			<span class="text-right text-amber-100">9 - 19PM</span>
+			<span class="text-right text-amber-100">19:30</span>
+			<span class="">
+				{lang == 'DE' ? 'Drinks und Tapas in Can Markus' : 'Tapeo y copasn en Can Markus'}
+			</span>
+		</div>
+		<span class="font-bold my-4 text-amber-100"
+			>{lang == 'DE' ? 'Samstag September 16' : 'Sabado Septiembre 16'}</span
+		>
+		<div class="grid grid-cols-2 grid-cols-[85px_auto] place-content-start gap-x-8">
+			<span class="text-right text-amber-100">9h - 19h</span>
 			<span class="">
 				{lang == 'DE'
 					? 'Golf / Tennis / Segeln / Sonnen / Spaziergang / Altersgerechte gymnastik'
-					: 'Golf / Tenis / Vela / Panching / Paseo modernista / Gimnasia playera'}
+					: 'Golf / Penis / Vela / Panching / Paseo modernista / Gimnasia playera'}
 			</span>
-			<span class="text-right text-amber-100">14PM</span>
-			<span>
-				{lang == 'DE' ? 'Watering hole: La Caleta' : 'Wine spot: La Caleta'}
-			</span>
-			<span class="text-right text-amber-100">15PM</span>
+			<span class="text-right text-amber-100">14:00</span>
+			<span> Watering hole & Wine spot, La Caleta </span>
+			<span class="text-right text-amber-100">15:00</span>
 			<span>
 				{lang == 'DE' ? 'Lange Siesta' : 'Siesta profunda'}
 			</span>
-			<span class="text-right text-amber-100">20PM</span>
+			<span class="text-right text-amber-100">20:00</span>
 			<span>Beachparty {lang == 'DE' ? 'im' : 'en'} GAS Quiet Club</span>
 		</div>
-		<span class="font-bold my-4 text-amber-100">Sun Sept 17, 2023</span>
+		<span class="font-bold my-4 text-amber-100"
+			>{lang == 'DE' ? 'Sonntag September 17' : 'Domingo Septiembre 17'}</span
+		>
 		<div class="grid grid-cols-2 grid-cols-[85px_auto] place-content-start gap-x-8">
-			<span class="text-right text-amber-100">10:30AM</span>
+			<span class="text-right text-amber-100">10:30</span>
 			<span class="">Café & Croissant, Petit Moll</span>
 		</div>
 	</div>
@@ -87,12 +98,12 @@
 	</div>
 	<div slot="content">
 		{lang == 'DE'
-			? 'Abschlag am Tee 10 – nur für Frühaufsteher'
-			: 'Salida en el tee 10 - solo para los madrugadores'}
+			? 'Leider nur für Frühaufsteher. Abschlag bei Tee 10.'
+			: 'Solo para los madrugadores. Salida en el tee 10.'}
 		<br />
 		{lang == 'DE'
-			? 'Dürfen wir Euch bitten, die Greenfee selber zu bezahlen?'
-			: 'Podemos pediros pagar el green fee cada uno?'}
+			? 'Dank noch vorhanden Einladungen (60 EUR) von Markus können wir die Greenfee (200 EUR) wahrscheinlich senken. Bitte Golfschläger selber mitnehmen.'
+			: 'Gracias a las invitaciones aún disponibles (60 EUR) de Markus se reduce probablemente el green fee (200 EUR). Por favor, traigan sus propios palos de golf.'}
 		<br />
 
 		Location:
@@ -104,12 +115,12 @@
 
 <Section background={tennis} dir="left">
 	<div slot="title">
-		{lang == 'DE' ? 'Tennis' : 'Tenis'}
+		{lang == 'DE' ? 'Tennis / Padel' : 'Tenis / Padel'}
 		<br />
 		12:00 / 13:00
 	</div>
 	<div slot="content">
-		{lang == 'DE' ? 'Einzel oder Doppel' : 'Individual o dobles'}
+		{lang == 'DE' ? 'Einzel oder Doppel.' : 'Individual o dobles.'}
 		<br />
 		Location:
 		<a target="_blank" href="https://goo.gl/maps/XWrdD2A6qd4DWhCR8" class="hover:underline">
@@ -128,7 +139,7 @@
 	</div>
 	<div slot="content">
 		Location:
-		<a target="_blank" href="https://goo.gl/maps/6LH4Wux1fAArpXtw7" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/bNpxA4junTPRhK5y9" class="hover:underline">
 			Club Náutico El Balís, Sant Andreu de Llavaneres.
 		</a>
 		{lang == 'DE' ? 'Liegeplatz' : 'Amarre'}: 468 - 470
@@ -137,7 +148,7 @@
 
 <Section background={sunbathing} dir="left" gradient={false}>
 	<div slot="title" class="text-slate-800">
-		Sunbathing <br />
+		{lang == "DE" ? "Sonnen" : "Panching"}<br />
 		12:00 - 18:00
 	</div>
 	<div slot="content" class="text-black">
@@ -146,7 +157,7 @@
 			: 'Delante del chiringuito Ohnades, con mal tiempo en la piscina de Can Markus'}
 		<br />
 		Locations: <br />
-		<a target="_blank" href="https://goo.gl/maps/XSJdazmVzYdkFqX78" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/74dJ5GVgj3zkKXnb8" class="hover:underline">
 			Chiringuito Ohnades, Passeig del Marquès de Casa Riera, 25, 08394 Sant Vicenç de Montalt
 		</a>
 		<br />
@@ -164,35 +175,32 @@
 	</div>
 	<div slot="content">
 		{lang == 'DE' ? 'Spaziergang mit katalanischem Modernismus in' : 'En'}
-		<a target="_blank" href="https://goo.gl/maps/USMcxD9bHwfiHV3b9" class="hover:underline"> Canet de Mar </a>
+		<a target="_blank" href="https://goo.gl/maps/USMcxD9bHwfiHV3b9" class="hover:underline">
+			Canet de Mar.
+		</a>
 	</div>
 </Section>
 
 <Section background={caleta} dir="left">
 	<div slot="title">
 		Watering hole & Wine spot <br />
-		{lang == 'DE' ? 'Ab' : 'A partir de las'}
 		14:00
 	</div>
 	<div slot="content">
-		{lang == 'DE' ? 'In La Caleta.' : 'En La Caleta.'} <br />
-		<span class="font-bold">
-			{lang == 'DE' ? 'Mittagessen' : 'Comida: '} <br />
-		</span>
-		{lang == 'DE' ? 'Unsere Vorschläge sind' : 'Nuestras propuestas son:'}
-		La Caleta, Ohnades, Mío, Sotavent.
-		{lang == 'DE'
-			? 'Sagt bitte Bescheid, wenn wir für Euch vorreservieren sollen'
-			: 'Por favor avisarnos si queréis que reservemos'}
-		<br />
 		Location:
-		<a target="_blank" href="https://goo.gl/maps/gc8WBU7ae4QuMCSU9" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/RDwLUgaAk2XUwCx5A" class="hover:underline">
 			La Caleta, Passeig del Marquès de Casa Riera, 45, Sant Vicenç de Montalt
 		</a>
+		<br/>
+		<span class="font-bold my-2">
+			{lang == 'DE' ? 'Mittagessen' : 'Comida: '} <br />
+		</span>
+		{lang == 'DE' ? 'Unsere Vorschläge:' : 'Nuestras propuestas:'}
+		La Caleta, Ohnades, Mío, Sotavent, Club de Golf.
+		{lang == 'DE'
+			? 'Sagt bitte Bescheid, wenn wir für Euch vorreservieren sollen.'
+			: 'Por favor avisarnos si queréis que reservemos.'}
 		<br />
-		<div class="my-2">
-		<a target="_blank" href="tel:+34 937 911 558">+34 937 911 558</a>
-		</div>
 	</div>
 </Section>
 
@@ -210,7 +218,7 @@
 		<br />
 		Location:
 		<a target="_blank" href="https://goo.gl/maps/QVKbsvKvxKM4yViw9" class="hover:underline">
-		GAS Quiet Club, Club Náutico El Balís, Sant Andreu de Llavaneres
+			GAS Quiet Club, Club Náutico El Balís, Sant Andreu de Llavaneres
 		</a>
 	</div>
 </Section>
@@ -232,7 +240,7 @@
 
 <div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
 	<h2 class="text-4xl font-display">
-		{lang == 'DE' ? 'Aktivitäten' : 'Actividades'}
+		{lang == 'DE' ? 'Semmelsches Partytraining' : 'Calentando motores a lo Semmel'}
 	</h2>
 	{#each data as event_type}
 		<div class="mx-6 md:mx-40">

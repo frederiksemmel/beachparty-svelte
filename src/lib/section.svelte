@@ -31,7 +31,7 @@
 	{#if gradient}
 		<div
 			class="absolute bottom-0 w-full h-full z-5"
-			style="background: linear-gradient(to {dir}, rgba(0,0,0,0) 0%, rgba(0,0,0,0.50) 100%);"
+			style="background: linear-gradient(to {dir}, rgba(0,0,0,0) 0%, rgba(0,0,0,0.40) 100%);"
 		/>
 	{:else}
 		<div
