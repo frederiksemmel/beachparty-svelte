@@ -96,7 +96,7 @@
 		<br />
 
 		Location:
-		<a href="https://goo.gl/maps/oBozjG8pFH6khkGS7" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/oBozjG8pFH6khkGS7" class="hover:underline">
 			Club de Golf de Llavaneres, Camí Golf, 49-51, Sant Andreu de Llavaneres
 		</a>
 	</div>
@@ -112,7 +112,7 @@
 		{lang == 'DE' ? 'Einzel oder Doppel' : 'Individual o dobles'}
 		<br />
 		Location:
-		<a href="https://goo.gl/maps/XWrdD2A6qd4DWhCR8" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/XWrdD2A6qd4DWhCR8" class="hover:underline">
 			Tenis Mora, Camí de Can Pi, Sant Andreu de Llavaneres
 		</a>
 
@@ -128,7 +128,7 @@
 	</div>
 	<div slot="content">
 		Location:
-		<a href="https://goo.gl/maps/6LH4Wux1fAArpXtw7" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/6LH4Wux1fAArpXtw7" class="hover:underline">
 			Club Náutico El Balís, Sant Andreu de Llavaneres.
 		</a>
 		{lang == 'DE' ? 'Liegeplatz' : 'Amarre'}: 468 - 470
@@ -146,11 +146,11 @@
 			: 'Delante del chiringuito Ohnades, con mal tiempo en la piscina de Can Markus'}
 		<br />
 		Locations: <br />
-		<a href="https://goo.gl/maps/XSJdazmVzYdkFqX78" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/XSJdazmVzYdkFqX78" class="hover:underline">
 			Chiringuito Ohnades, Passeig del Marquès de Casa Riera, 25, 08394 Sant Vicenç de Montalt
 		</a>
 		<br />
-		<a href="https://goo.gl/maps/hPoaACdjNvqbLUT4A" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/hPoaACdjNvqbLUT4A" class="hover:underline">
 			“Can Markus”, Avinguda Turo d’en Llull 64, 08392 Sant Andreu de Llavaneres
 		</a>
 	</div>
@@ -164,7 +164,7 @@
 	</div>
 	<div slot="content">
 		{lang == 'DE' ? 'Spaziergang mit katalanischem Modernismus in' : 'En'}
-		<a href="https://goo.gl/maps/USMcxD9bHwfiHV3b9" class="hover:underline"> Canet de Mar </a>
+		<a target="_blank" href="https://goo.gl/maps/USMcxD9bHwfiHV3b9" class="hover:underline"> Canet de Mar </a>
 	</div>
 </Section>
 
@@ -186,12 +186,12 @@
 			: 'Por favor avisarnos si queréis que reservemos'}
 		<br />
 		Location:
-		<a href="https://goo.gl/maps/gc8WBU7ae4QuMCSU9" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/gc8WBU7ae4QuMCSU9" class="hover:underline">
 			La Caleta, Passeig del Marquès de Casa Riera, 45, Sant Vicenç de Montalt
 		</a>
 		<br />
 		<div class="my-2">
-		<a href="tel:+34 937 911 558">+34 937 911 558</a>
+		<a target="_blank" href="tel:+34 937 911 558">+34 937 911 558</a>
 		</div>
 	</div>
 </Section>
@@ -209,7 +209,7 @@
 			: 'Dress code: Veraniego con zapatos a prueba de arena o descalzos.'}
 		<br />
 		Location:
-		<a href="https://goo.gl/maps/QVKbsvKvxKM4yViw9" class="hover:underline">
+		<a target="_blank" href="https://goo.gl/maps/QVKbsvKvxKM4yViw9" class="hover:underline">
 		GAS Quiet Club, Club Náutico El Balís, Sant Andreu de Llavaneres
 		</a>
 	</div>
