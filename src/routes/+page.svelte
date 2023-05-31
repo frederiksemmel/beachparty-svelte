@@ -59,11 +59,11 @@
 		<div class="grid grid-cols-2 grid-cols-[85px_auto] place-content-start gap-x-8">
 			<span class="text-right text-amber-100">19:30</span>
 			<span class="">
-				{lang == 'DE' ? 'Drinks und Tapas in Can Markus' : 'Tapeo y copasn en Can Markus'}
+				{lang == 'DE' ? 'Drinks und Tapas in Can Markus' : 'Tapeo y copas en Can Markus'}
 			</span>
 		</div>
 		<span class="font-bold my-4 text-amber-100"
-			>{lang == 'DE' ? 'Samstag September 16' : 'Sabado Septiembre 16'}</span
+			>{lang == 'DE' ? 'Samstag September 16' : 'Sábado Septiembre 16'}</span
 		>
 		<div class="grid grid-cols-2 grid-cols-[85px_auto] place-content-start gap-x-8">
 			<span class="text-right text-amber-100">9h - 19h</span>
@@ -102,8 +102,12 @@
 			: 'Solo para los madrugadores. Salida en el tee 10.'}
 		<br />
 		{lang == 'DE'
-			? 'Dank noch vorhanden Einladungen (60 EUR) von Markus können wir die Greenfee (200 EUR) wahrscheinlich senken. Bitte Golfschläger selber mitnehmen.'
-			: 'Gracias a las invitaciones aún disponibles (60 EUR) de Markus se reduce probablemente el green fee (200 EUR). Por favor, traigan sus propios palos de golf.'}
+			? 'Dank noch vorhander Einladungen (60€) von Markus können wir die Greenfee (200€) wahrscheinlich senken.'
+			: 'Gracias a las invitaciones aún disponibles (60€) de Markus se reduce probablemente el green fee (200€).'}
+		<br />
+		{lang == 'DE'
+			? 'Miete Golfschläger: 42€'
+			: 'Alquiler de palos: 42€'}
 		<br />
 
 		Location:
@@ -213,8 +217,8 @@
 		{lang == 'DE' ? 'Im GAS Quiet Club.' : 'En el GAS Quiet Club.'}
 		<br />
 		{lang == 'DE'
-			? 'Dress code: Sommerlich mit Sand-festen Schuhen oder Barfuss.'
-			: 'Dress code: Veraniego con zapatos a prueba de arena o descalzos.'}
+			? 'Dresscode: Sommerlich mit Pullover und sandfesten Schuhen (am Abend kann es kühl werden)'
+			: 'Dress code: Veraniego con jersey y zapatos a prueba de playa (por la noche refresca)'}
 		<br />
 		Location:
 		<a target="_blank" href="https://goo.gl/maps/QVKbsvKvxKM4yViw9" class="hover:underline">
@@ -229,12 +233,31 @@
 	</h2>
 	<div class="mx-6 md:mx-40">
 		{lang == 'DE'
-			? 'Wenn Ihr möchtet, gebt Eure Flüge und Ankunftszeiten an, um gemeinsam Autos auszuleihen oder per Sammeltaxi nach Llavaneres zu fahren.'
-			: 'Si queréis, darnos vuestros vuelos o trenes y hora de llegada (ver más abajo), para organizar el alquiler de coches o de coger un taxi grande a Llavaneres.'}
+			? 'Man kann vom Flughafen mit Bus und Bahn nach Caldes d‘ Estrac (Caldetas) kommen. Dauer: ca 2 Stunden'
+			: 'Se puede llegar desde el aeropuerto a Caldes d’Estrac (Caldetes) con autobús y tren de cercanías. Duración: aprox 2 horas'}
+		<br />
 		<br />
 		{lang == 'DE'
-			? 'Per Taxi: Kristian Taxi, 6 Sitze: ... €, 4 Sitze: ... € Edu Taxi, 4 Sitze: ...'
-			: 'Por Taxi: Kristian Taxi, 6 plazas: ... €, 4 plazas: ... € Edu Taxi, 4 plazas: ...'}
+			? 'Von Terminal 1 oder 2 – Aerobus A1 nach Plaza Catalunya, dort in Rodalies, Linea R1,  Richtung Maçanet-Massanes.'
+			: 'De la T1 o T2 con Aerobus A1 a Plaza Catalunya, desde ahí en Rodalies, Linea R1, dirección Maçanet-Massanes.'}
+		<br />
+		<br />
+		{lang == 'DE'
+			? 'Per Taxi: 85€'
+			: 'En Taxi: 85€'}
+		<br />
+		{lang == 'DE'
+			? 'Taxi Cano, Miguel Angel: +34 606 679 953 (per whatsapp)'
+			: 'Taxi Cano, Miguel Angel: +34 606 679 953 (per whatsapp)'}
+		<br />
+		{lang == 'DE'
+			? 'Taxi Ferrer, Miguel, +34 670 408 444 (per whatsapp)'
+			: 'Taxi Ferrer, Miguel, +34 670 408 444 (per whatsapp)'}
+		<br />
+		<br />
+		{lang == 'DE'
+			? 'Wenn Ihr möchtet, gebt Eure Flüge und Ankunftszeiten an, um gemeinsam Autos auszuleihen oder per Sammeltaxi nach Llavaneres zu fahren.'
+			: 'Si queréis, darnos vuestros vuelos o trenes y hora de llegada (ver más abajo), para organizar el alquiler de coches o de coger un taxi grande a Llavaneres.'}
 	</div>
 </div>
 
@@ -289,8 +312,8 @@
 		{lang == 'DE' ? 'Telefone' : 'Móviles'}
 	</h2>
 	<div class="mx-6 md:mx-40">
-		Markus: 629 129636 <br />
-		Nata: 619 818 229 <br />
+		Markus: +34 629 129636 <br />
+		Nata: +34 619 818 229 <br />
 		Miriam: +34 638 089 540 <br />
 		Frederik: +41 788 544 271 (WhatsApp) <br />
 	</div>
