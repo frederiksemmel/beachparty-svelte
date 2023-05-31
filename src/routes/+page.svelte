@@ -70,7 +70,7 @@
 			<span class="">
 				{lang == 'DE'
 					? 'Golf / Tennis / Segeln / Sonnen / Spaziergang / Altersgerechte gymnastik'
-					: 'Golf / Penis / Vela / Panching / Paseo modernista / Gimnasia playera'}
+					: 'Golf / Tenis / Vela / Panching / Paseo modernista / Gimnasia playera'}
 			</span>
 			<span class="text-right text-amber-100">14:00</span>
 			<span> Watering hole & Wine spot, La Caleta </span>
