@@ -20,9 +20,21 @@ serde_json = { version = "1", features = ["raw_value"] }
 # Documentation: https://docs.rs/vercel_runtime/latest/vercel_runtime
 vercel_runtime = { version = "0.2.1" }
 
+
+google-sheets4 = "*"
+hyper = "^0.14"
+hyper-rustls = "^0.22"
+yup-oauth2 = "^5.0"
+serde_urlencoded = "0.7.1"
+humantime = "2.1.0"
+
 [lib]
 path = "src_rs/lib.rs"
 
 [[bin]]
 name = "events"
 path = "api/events.rs"
+
+[[bin]]
+name = "register"
+path = "api/register.rs"
