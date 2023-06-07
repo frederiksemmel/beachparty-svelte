@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 
 	import Section from '../lib/section.svelte';
+	import SignUp from '../lib/signup.svelte';
 
 	import beach from '$lib/assets/beach.png?w=1920&format=webp';
 	import golf from '$lib/assets/golf.jpg?w=1920&format=webp';
@@ -12,27 +13,22 @@
 	import caleta from '$lib/assets/caleta.jpg?w=1920&format=webp';
 	import beachclub from '$lib/assets/beachclub_1.jpg?w=1920&format=webp';
 
-	var data = [
-		{ name: 'Tennis', events: [] },
-		{ name: 'Golf', events: [] }
-	];
+	var events = [];
+	var info = [];
 	var lang = 'DE';
 
-	function format_date(date_str: string): string {
-		var date = new Date(date_str);
-		let hours = date.getHours();
-		return `${hours}${hours >= 12 ? 'pm' : 'am'}`;
-	}
-
 	onMount(async () => {
-		const recaptchaScript = document.createElement('script');
-		recaptchaScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
-		document.head.appendChild(recaptchaScript);
-
+		// const recaptchaScript = document.createElement('script');
+		// recaptchaScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+		// document.head.appendChild(recaptchaScript);
 		const res = await fetch(`/api/events`);
-		data = await res.json();
-		console.log(data);
+		var data = await res.json();
+		events = data["events"];
+		console.log(events);
+		info = data["info"];
+		console.log(info);
 	});
+
 </script>
 
 <div class="mx-8 my-4 flex flex-row space-x-4 text-xl">
@@ -105,9 +101,7 @@
 			? 'Dank noch vorhander Einladungen (60€) von Markus können wir die Greenfee (200€) wahrscheinlich senken.'
 			: 'Gracias a las invitaciones aún disponibles (60€) de Markus se reduce probablemente el green fee (200€).'}
 		<br />
-		{lang == 'DE'
-			? 'Miete Golfschläger: 42€'
-			: 'Alquiler de palos: 42€'}
+		{lang == 'DE' ? 'Miete Golfschläger: 42€' : 'Alquiler de palos: 42€'}
 		<br />
 
 		Location:
@@ -152,7 +146,7 @@
 
 <Section background={sunbathing} dir="left" gradient={false}>
 	<div slot="title" class="text-slate-800">
-		{lang == "DE" ? "Sonnen" : "Panching"}<br />
+		{lang == 'DE' ? 'Sonnen' : 'Panching'}<br />
 		12:00 - 18:00
 	</div>
 	<div slot="content" class="text-black">
@@ -195,7 +189,7 @@
 		<a target="_blank" href="https://goo.gl/maps/RDwLUgaAk2XUwCx5A" class="hover:underline">
 			La Caleta, Passeig del Marquès de Casa Riera, 45, Sant Vicenç de Montalt
 		</a>
-		<br/>
+		<br />
 		<span class="font-bold my-2">
 			{lang == 'DE' ? 'Mittagessen' : 'Comida: '} <br />
 		</span>
@@ -231,7 +225,7 @@
 	<h2 class="text-4xl font-display">
 		{lang == 'DE' ? 'Anreise' : 'Llegada'}
 	</h2>
-	<div class="mx-6 md:mx-40">
+	<div class="mx-6">
 		{lang == 'DE'
 			? 'Man kann vom Flughafen mit Bus und Bahn nach Caldes d‘ Estrac (Caldetas) kommen. Dauer: ca 2 Stunden'
 			: 'Se puede llegar desde el aeropuerto a Caldes d’Estrac (Caldetes) con autobús y tren de cercanías. Duración: aprox 2 horas'}
@@ -242,9 +236,7 @@
 			: 'De la T1 o T2 con Aerobus A1 a Plaza Catalunya, desde ahí en Rodalies, Linea R1, dirección Maçanet-Massanes.'}
 		<br />
 		<br />
-		{lang == 'DE'
-			? 'Per Taxi: 85€'
-			: 'En Taxi: 85€'}
+		{lang == 'DE' ? 'Per Taxi: 85€' : 'En Taxi: 85€'}
 		<br />
 		{lang == 'DE'
 			? 'Taxi Cano, Miguel Angel: +34 606 679 953 (per whatsapp)'
@@ -261,16 +253,16 @@
 	</div>
 </div>
 
-<div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
+<div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6" id="partytraining">
 	<h2 class="text-4xl font-display">
 		{lang == 'DE' ? 'Semmelsches Partytraining' : 'Calentando motores a lo Semmel'}
 	</h2>
-	{#each data as event_type}
-		<div class="mx-6 md:mx-40">
+	{#each events as event_type}
+		<div class="mx-6">
 			<span class="text-xl font-bold">{event_type.name}</span>
 			<div class="grid grid-cols-2 grid-cols-[60px_auto] gap-x-4">
 				{#each event_type.events as event}
-					<span class="text-right"> {format_date(event['start'])}:</span>
+					<span class="text-right"> {event['start']}</span>
 					<div class="">
 						{event['attendees'].join(', ')}
 					</div>
@@ -278,19 +270,15 @@
 			</div>
 		</div>
 	{/each}
-	<!-- Calendly inline widget begin -->
-	<div
-		class="calendly-inline-widget min-w-[320px] h-[700px]"
-		data-url="https://calendly.com/semmelbeachparty?hide_gdpr_banner=0"
-	/>
-	<!-- Calendly inline widget end -->
+
+	<SignUp info={info} events={events} />
 </div>
 
 <div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
 	<h2 class="text-4xl font-display">
 		{lang == 'DE' ? 'Adressen' : 'Direcciones'}
 	</h2>
-	<div class="mx-6 md:mx-40">
+	<div class="mx-6">
 		“Can Markus”, Avinguda Turo d’en Llull 64, 08392 Sant Andreu de Llavaneres <br />
 		Club de Golf de Llavaneres, Camí Golf, 49-51, Sant Andreu de Llavaneres <br />
 		Tenis Mora, Camí de Can Pi, Sant Andreu de Llavaneres <br />
@@ -311,7 +299,7 @@
 	<h2 class="text-4xl font-display">
 		{lang == 'DE' ? 'Telefone' : 'Móviles'}
 	</h2>
-	<div class="mx-6 md:mx-40">
+	<div class="mx-6">
 		Markus: +34 629 129636 <br />
 		Nata: +34 619 818 229 <br />
 		Miriam: +34 638 089 540 <br />

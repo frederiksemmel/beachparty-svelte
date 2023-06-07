@@ -12,3 +12,4 @@ vite.config.ts.timestamp-*
 
 
 /target
+priv_key.json
