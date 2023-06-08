@@ -12,6 +12,7 @@
 	import modernismo from '$lib/assets/modernismo.jpg?w=1920&format=webp';
 	import caleta from '$lib/assets/caleta.jpg?w=1920&format=webp';
 	import beachclub from '$lib/assets/beachclub_1.jpg?w=1920&format=webp';
+	import beachgym from '$lib/assets/beach_gym_1.jpg?w=1920&format=webp';
 
 	var events = [];
 	var info = [];
@@ -23,12 +24,11 @@
 		// document.head.appendChild(recaptchaScript);
 		const res = await fetch(`/api/events`);
 		var data = await res.json();
-		events = data["events"];
+		events = data['events'];
 		console.log(events);
-		info = data["info"];
+		info = data['info'];
 		console.log(info);
 	});
-
 </script>
 
 <div class="mx-8 my-4 flex flex-row space-x-4 text-xl">
@@ -144,7 +144,7 @@
 	</div>
 </Section>
 
-<Section background={sunbathing} dir="left" gradient={false}>
+<Section background={sunbathing} dir="left" gradient={false} blur={true}>
 	<div slot="title" class="text-slate-800">
 		{lang == 'DE' ? 'Sonnen' : 'Panching'}<br />
 		12:00 - 18:00
@@ -167,7 +167,7 @@
 
 <Section background={modernismo} dir="right">
 	<div slot="title">
-		{lang == 'DE' ? 'Spaziergang' : 'Paseo moderista'}
+		{lang == 'DE' ? 'Spaziergang' : 'Paseo modernista'}
 		<br />
 		12:00
 	</div>
@@ -194,7 +194,7 @@
 			{lang == 'DE' ? 'Mittagessen' : 'Comida: '} <br />
 		</span>
 		{lang == 'DE' ? 'Unsere Vorschläge:' : 'Nuestras propuestas:'}
-		La Caleta, Ohnades, Mío, Sotavent, Club de Golf.
+		La Caleta, Ohnades, Mío, Sotavent, Tramendu Beach, Club de Golf.
 		{lang == 'DE'
 			? 'Sagt bitte Bescheid, wenn wir für Euch vorreservieren sollen.'
 			: 'Por favor avisarnos si queréis que reservemos.'}
@@ -202,7 +202,21 @@
 	</div>
 </Section>
 
-<Section background={beachclub} dir="right">
+<Section background={beachgym} dir="right" blur={true}>
+	<div slot="title">
+		{lang == 'DE' ? 'Altersgerechte Gymnastik' : 'Beach Gym'}
+		 <br />
+		17:30
+	</div>
+	<div slot="content">
+		Location:
+		<a target="_blank" href="https://goo.gl/maps/RDwLUgaAk2XUwCx5A" class="hover:underline">
+			Beach La Caleta, Passeig del Marquès de Casa Riera, 45, Sant Vicenç de Montalt
+		</a>
+	</div>
+</Section>
+
+<Section background={beachclub} dir="left" gradient={true}>
 	<div slot="title">
 		Beachparty <br />
 		20:00
@@ -248,8 +262,8 @@
 		<br />
 		<br />
 		{lang == 'DE'
-			? 'Wenn Ihr möchtet, gebt Eure Flüge und Ankunftszeiten an, um gemeinsam Autos auszuleihen oder per Sammeltaxi nach Llavaneres zu fahren.'
-			: 'Si queréis, darnos vuestros vuelos o trenes y hora de llegada (ver más abajo), para organizar el alquiler de coches o de coger un taxi grande a Llavaneres.'}
+			? 'Wenn Ihr möchtet, gebt Eure Flüge und Ankunftszeiten an. Wir helfen gerne, ob Ihr mit jemand anderen ein Taxi gemeinsam nehmen könnt.'
+			: ''}
 	</div>
 </div>
 
@@ -271,7 +285,7 @@
 		</div>
 	{/each}
 
-	<SignUp info={info} events={events} />
+	<SignUp {info} {events} />
 </div>
 
 <div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
@@ -286,8 +300,7 @@
 		Chiringuito Ohnades, Passeig del Marquès de Casa Riera, 25, 08394 Sant Vicenç de Montalt <br />
 		La Caleta, Passeig del Marquès de Casa Riera, 45, Sant Vicenç de Montalt, Tel. +34 937 911 558
 		<br />
-		Ohnades, Passeig del Marquès de Casa Riera, 25, Sant Vicenç de Montalt, Tel: +34 692 336 653
-		<br />
+		Passeig del Marquès de Casa Riera, 41-42, 08394 Sant Vicenç de Montalt, +34 680 23 31 01 <br />
 		Mío, Passeig del Marquès de Casa Riera, 1, Sant Vicenç de Montalt, +34 605 511 413 <br />
 		Sotavent, Passeig dels Anglesos, 24, 08393 Caldes d'Estrac, +34 661 759 445 <br />
 		GAS Quiet Club, Club Náutico El Balís, Sant Andreu de Llavaneres <br />
@@ -300,8 +313,8 @@
 		{lang == 'DE' ? 'Telefone' : 'Móviles'}
 	</h2>
 	<div class="mx-6">
-		Markus: +34 629 129636 <br />
-		Nata: +34 619 818 229 <br />
+		Markus: +34 629 129 636 <br />
+		Nata: +34 619 818 829 <br />
 		Miriam: +34 638 089 540 <br />
 		Frederik: +41 788 544 271 (WhatsApp) <br />
 	</div>

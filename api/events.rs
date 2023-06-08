@@ -2,6 +2,7 @@ use beachparty::{
     auth, config, get_event_info, get_registrations_from_sheets, http_client, EventInfo,
     Registration,
 };
+use chrono::NaiveTime;
 // use chrono::NaiveDateTime;
 use google_sheets4::Sheets;
 use serde::Serialize;
@@ -38,7 +39,8 @@ fn events_api(registrations: Vec<Registration>) -> Vec<EventCategory> {
         let attendees = per_type.entry(reg.start).or_default();
         attendees.push(reg.name);
     }
-    map.into_iter()
+    let mut event_cats: Vec<_> = map
+        .into_iter()
         .map(|(name, events)| {
             let mut events: Vec<Event> = events
                 .into_iter()
@@ -47,7 +49,17 @@ fn events_api(registrations: Vec<Registration>) -> Vec<EventCategory> {
             events.sort_by_key(|e| e.start.clone());
             EventCategory { name, events }
         })
-        .collect()
+        .collect();
+    event_cats.sort_by_key(|cat| {
+        cat.events
+            .iter()
+            .map(|e| {
+                NaiveTime::parse_from_str(&e.start, "%H:%M")
+                    .unwrap_or(NaiveTime::from_hms_opt(9, 0, 0).unwrap())
+            })
+            .min()
+    });
+    event_cats
 }
 
 pub async fn handler(_req: Request) -> Result<Response<Body>, Error> {

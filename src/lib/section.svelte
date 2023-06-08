@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let background: string;
 	export let gradient: boolean = true;
+	export let blur: boolean = false;
 	export let dir = 'right';
 
 	function dir_to_flex(dir: string): string {
@@ -33,7 +34,8 @@
 			class="absolute bottom-0 w-full h-full z-5"
 			style="background: linear-gradient(to {dir}, rgba(0,0,0,0) 0%, rgba(0,0,0,0.40) 100%);"
 		/>
-	{:else}
+	{/if}
+	{#if blur}
 		<div
 			class="absolute bottom-0 w-full h-full z-5 backdrop-blur-sm"
 		/>
