@@ -205,7 +205,7 @@
 <Section background={beachgym} dir="right" blur={true}>
 	<div slot="title">
 		{lang == 'DE' ? 'Altersgerechte Gymnastik' : 'Beach Gym'}
-		 <br />
+		<br />
 		17:30
 	</div>
 	<div slot="content">
@@ -286,6 +286,14 @@
 	{/each}
 
 	<SignUp {info} {events} />
+</div>
+
+<div class="w-1/1 h-[500px]">
+	<iframe
+		src="https://www.google.com/maps/d/u/0/embed?mid=1iIS9LaU-igfUyvDhNd9sEKQHznNirKo&ehbc=2E312F"
+		width="100%"
+		height="100%"
+	/>
 </div>
 
 <div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
