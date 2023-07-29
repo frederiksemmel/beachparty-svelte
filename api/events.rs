@@ -2,7 +2,7 @@ use beachparty::{
     auth, config, get_event_info, get_registrations_from_sheets, http_client, EventInfo,
     Registration,
 };
-use chrono::NaiveTime;
+use chrono::{NaiveDate, NaiveDateTime, NaiveTime};
 // use chrono::NaiveDateTime;
 use google_sheets4::Sheets;
 use serde::Serialize;
@@ -51,13 +51,23 @@ fn events_api(registrations: Vec<Registration>) -> Vec<EventCategory> {
         })
         .collect();
     event_cats.sort_by_key(|cat| {
-        cat.events
+        let date = if cat.name.to_lowercase().contains("thursday") {
+            NaiveDate::from_ymd_opt(2023, 9, 14).unwrap()
+        } else if cat.name.to_lowercase().contains("friday") {
+            NaiveDate::from_ymd_opt(2023, 9, 15).unwrap()
+        } else {
+            NaiveDate::from_ymd_opt(2023, 9, 16).unwrap()
+        };
+        let time = cat
+            .events
             .iter()
             .map(|e| {
                 NaiveTime::parse_from_str(&e.start, "%H:%M")
                     .unwrap_or(NaiveTime::from_hms_opt(9, 0, 0).unwrap())
             })
             .min()
+            .unwrap_or(NaiveTime::from_hms_opt(9, 0, 0).unwrap());
+        NaiveDateTime::new(date, time)
     });
     event_cats
 }
