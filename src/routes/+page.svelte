@@ -62,7 +62,7 @@
 			>{lang == 'DE' ? 'Samstag September 16' : 'Sábado Septiembre 16'}</span
 		>
 		<div class="grid grid-cols-2 grid-cols-[85px_auto] place-content-start gap-x-8">
-			<span class="text-right text-amber-100">9h - 19h</span>
+			<span class="text-right text-amber-100">9:00 - 17:30</span>
 			<span class="">
 				{lang == 'DE'
 					? 'Golf / Tennis / Segeln / Sonnen / Spaziergang / Altersgerechte gymnastik'
@@ -90,7 +90,7 @@
 <Section background={golf}>
 	<div slot="title">
 		GOLF <br />
-		9:30 / 9:40 / 9:50
+		9:30 / 9:40
 	</div>
 	<div slot="content">
 		{lang == 'DE'
@@ -115,7 +115,7 @@
 	<div slot="title">
 		{lang == 'DE' ? 'Tennis / Padel' : 'Tenis / Padel'}
 		<br />
-		12:00 / 13:00
+		11:00 - 13:00
 	</div>
 	<div slot="content">
 		{lang == 'DE' ? 'Einzel oder Doppel.' : 'Individual o dobles.'}
@@ -133,7 +133,7 @@
 	<div slot="title">
 		{lang == 'DE' ? 'Segeln' : 'Vela'}
 		<br />
-		12:00 - 14:00
+		11:00 - 13:00
 	</div>
 	<div slot="content">
 		Location:
@@ -169,7 +169,7 @@
 	<div slot="title">
 		{lang == 'DE' ? 'Spaziergang' : 'Paseo modernista'}
 		<br />
-		12:00
+		11:30
 	</div>
 	<div slot="content">
 		{lang == 'DE' ? 'Spaziergang mit katalanischem Modernismus in' : 'En'}
