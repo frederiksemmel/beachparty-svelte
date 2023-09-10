@@ -13,6 +13,7 @@
 	import caleta from '$lib/assets/caleta.jpg?w=1920&format=webp';
 	import beachclub from '$lib/assets/beachclub_1.jpg?w=1920&format=webp';
 	import beachgym from '$lib/assets/beach_gym_1.jpg?w=1920&format=webp';
+	import croissant from '$lib/assets/croissant.jpg?w=1920&format=webp';
 
 	var events = [];
 	var info = [];
@@ -82,7 +83,7 @@
 		>
 		<div class="grid grid-cols-2 grid-cols-[85px_auto] place-content-start gap-x-8">
 			<span class="text-right text-amber-100">10:30</span>
-			<span class="">Café & Croissant, Petit Moll</span>
+			<span class="">Café & Croissant, Love</span>
 		</div>
 	</div>
 </Section>
@@ -235,6 +236,21 @@
 	</div>
 </Section>
 
+<Section background={croissant} dir="right" gradient={true}>
+	<div slot="title">
+		Café & Croissant <br />
+		10:30
+	</div>
+	<div slot="content">
+		{lang == 'DE' ? 'Am Strand.' : 'En la playa.'}
+		<br />
+		Location:
+		<a target="_blank" href="https://goo.gl/maps/PgpTE5EGwk6htP7w6" class="hover:underline">
+			Love Platja Xiringuito
+		</a>
+	</div>
+</Section>
+
 <div class="my-24 mx-6 md:mx-40 flex flex-col space-y-6">
 	<h2 class="text-4xl font-display">
 		{lang == 'DE' ? 'Anreise' : 'Llegada'}
@@ -312,7 +328,7 @@
 		Mío, Passeig del Marquès de Casa Riera, 1, Sant Vicenç de Montalt, +34 605 511 413 <br />
 		Sotavent, Passeig dels Anglesos, 24, 08393 Caldes d'Estrac, +34 661 759 445 <br />
 		GAS Quiet Club, Club Náutico El Balís, Sant Andreu de Llavaneres <br />
-		Petit Moll, Passeig del Marquès de Casa Riera, Sant Vicenç de Montalt <br />
+		Love, Passeig del Marquès de Casa Riera, 8-10, 08394 Sant Vicenç de Montalt <br />
 	</div>
 </div>
 
